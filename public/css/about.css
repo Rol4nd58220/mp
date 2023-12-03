@@ -1,0 +1,720 @@
+/* Import the main styles for consistency */
+@import url('/css/style.css'); /* Update this path to the location of your main CSS file */
+
+:root{
+    --background-dark: #2d3548;
+    --text-light: rgba(255,255,255,0.6);
+    --text-lighter: rgba(255,255,255,0.9);
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
+  }
+
+
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    background-color: black; /* Or any other color you prefer */
+    overflow-x: hidden;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#about {
+    max-width: 1920px;
+}
+
+#about::before, #portfolio::before, #contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Places the grid behind the section content */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+
+/* VHS Overlay */
+.vhs-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            transparent,
+            transparent 1px,
+            rgba(255, 255, 255, 0.05) 1px,
+            rgba(255, 255, 255, 0.05) 2px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.03),
+            rgba(0, 255, 0, 0.03) 33%,
+            rgba(0, 0, 255, 0.03) 66%
+        );
+    background-size: 100% 4px, 3px 100%;
+    mix-blend-mode: screen;
+    z-index: 1;
+}
+
+/* About Section Styles */
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+/* Column Styles */
+.left-column, .center-column, .right-column {
+    position: relative;
+    width: 33%;
+}
+
+/* Styles for the Left Column */
+.left-column {
+    position: relative;
+    top: -88px;
+    left: 10px;
+}
+
+/* Styles for the About Me Heading */
+.left-column h1 {
+    font-size: 3em;
+    color: #ffffff; /* Dark text for contrast */
+    margin-bottom: 10px;
+}
+
+/* Styles for the About Me Paragraph */
+.left-column .about-me p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #ffffff; /* Slightly lighter text for the paragraph */
+    margin-bottom: 20px;
+}
+
+/* Styles for the List in About Me */
+.left-column .about-me ul {
+    list-style: none; /* Removes default list styling */
+    padding: 0;
+}
+
+.left-column .about-me ul li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.left-column .about-me ul li i {
+    margin-right: 10px;
+    color: #ffffff; /* Use a color that matches your site's theme */
+}
+
+.fas {
+    font-size: 24px;
+}
+
+.center-column {
+    position: absolute;
+    top: 19%;
+    left: 35%;
+    width: 500px;
+    z-index: 2;
+}
+
+/* Bio Image Styles */
+.b-game-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-bottom: 137%;
+    perspective: 1000px;
+}
+
+.b-game-card__cover {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    background-size: cover;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    transform-origin: top center;
+    will-change: transform;
+    transform: skewX(0.001deg);
+    transition: transform .35s ease-in-out;
+    border-radius: 4px;
+}
+
+.b-game-card__cover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(226deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 35%, rgba(255,255,255,0.2) 42%, rgba(255,255,255,0) 60%);
+  transform: translateY(-20%);
+  will-change: transform;
+  transition: transform .65s cubic-bezier(0.18, 0.9, 0.58, 1);
+}
+
+.b-game-card:hover .b-game-card__cover {
+  transform: rotateX(7deg) translateY(-6px);
+}
+
+.b-game-card:hover .b-game-card__cover::after {
+  transform: translateY(0%);
+}
+
+.b-game-card::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: rgba(0, 0, 0, 0.5); /* Replace $c_0 with a color or variable */
+  box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.4); /* Replace $c_0 with a color or variable */
+  will-change: opacity;
+  transform-origin: top center;
+  transform: skewX(0.001deg);
+  transition: transform .35s ease-in-out, opacity .5s ease-in-out;
+}
+
+.b-game-card:hover::before {
+  opacity: 0.6;
+  transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+
+.center {
+    width: 30%;
+    height: 65%;
+    position: absolute;
+    top: 51.5%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    background-color: #111111;
+    box-sizing: border-box;
+    border: 1px solid orange;
+    border-radius: 5px;
+    box-shadow: 0 20px 50px #000;
+}
+
+.center h1 {
+    font-size: 40px;
+    margin: 50px 0 30px 0;
+    padding: 0;
+    color: #000000;
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: animateText 2s infinite;
+}
+
+@keyframes animateText {
+    0% {
+        text-shadow: 0 0 2px orange;
+    }
+    25% {
+        text-shadow: 0 0 4px orange;
+    }
+    50% {
+        text-shadow: 0 0 7px orange;
+    }
+    75% {
+        text-shadow: 0 0 9px orange;
+    }
+    100% {
+        text-shadow: 0 0 12px orange;
+    }
+}
+
+.center .skill-container {
+    margin: 25px 0 0 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.center .skill-container p {
+    margin: 0 0 5px 0;
+    color: orange;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.center .skill-container p:nth-child(2) {
+    float: right;
+    position: relative;
+    top: -26px;
+}
+
+.center .skill-bar {
+    box-sizing: border-box;
+    padding: 4px;
+    border: 1px solid orange;
+    border-radius: 3px;
+}
+
+.center .skill-level {
+    height: 5px;
+    background-color: orange;
+    border-radius: 1px;
+}
+
+/* Skill Level Filling using Animation */
+
+/* HTML */
+.center .html {
+    width: 76%;
+    animation: html 2s;
+}
+
+@keyframes html {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 76%;
+    }
+}
+
+/* CSS */
+.center .css {
+    width: 70%;
+    animation: css 2s;
+}
+
+@keyframes css {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 70%;
+    }
+}
+
+/* Sass */
+.center .sass {
+    width: 56%;
+    animation: sass 2s ease-in;
+}
+
+@keyframes sass {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 56%;
+    }
+}
+
+/* JavaScript */
+.center .js {
+    width: 46%;
+    animation: js 2s ease-out;
+}
+
+@keyframes js {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 46%;
+    }
+}
+
+/* SQL */
+.center .sql {
+    width: 40%;
+    animation: sql 2s;
+}
+
+@keyframes sql {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 40%;
+    }
+}
+
+.content-overlay {
+    position: absolute; /* Position relative to #home-section */
+    top: -37%; /* Align to the top of #home-section */
+    left: -3%; /* Align to the left of #home-section */
+    width: 100%; /* Same width as #home-section */
+    height: 100%; /* Same height as #home-section */
+    display: flex; /* Use Flexbox for easy centering */
+    flex-direction: row; /* Change from column to row */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: white; /* Set text color for visibility */
+    text-align: center; /* Center text alignment */
+    z-index: 1; /* Ensure it's above the video */
+}
+
+h2 {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.masked-text-wrapper h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    color: white; /* Change text color to white */
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.masked-text-wrapper {
+    position: relative;
+    display: inline-flex; /* Added for inline display */
+    flex-direction: column; /* Stack h2 elements vertically */
+    align-items: center; /* Center align h2 elements */
+    margin: 0 10px; /* Optional: add some space between text wrappers */
+  }
+  
+  .text-default {
+    position: relative;
+  }
+  
+  .text-default:before,
+  .text-default:after {
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: orange; /* Change line color to orange */
+    position: absolute;
+    top: 0;
+    transform: skew(-41.5deg);
+  }
+  
+  .text-default:before {
+    animation: moveLinesBefore 8s infinite;
+  }
+  
+  .text-default:after {
+    animation: moveLinesAfter 8s infinite;
+  }
+  
+  .text-underneath {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--_box-width);
+    color: #e5e5e5;
+    color: #e5e5e5;
+    -webkit-text-stroke: 3px orange; /* Change text stroke to orange */
+    animation: rectangle 8s infinite;
+  }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+        from, to { color: transparent }
+        50% { color: #ccc }
+      }
+    
+    @keyframes moveLinesBefore {
+        0%, 100% { left: 50%; }
+        50% { left: 30%; }
+      }
+      
+      @keyframes moveLinesAfter {
+        0%, 100% { left: 70%; }
+        50% { left: 50%; }
+      }
+      
+      @keyframes rectangle {
+        0%, 100% { clip-path: polygon(60% 0, 80% 0, 60% 100%, 40% 100%); }
+        50% { clip-path: polygon(40% 0, 60% 0, 40% 100%, 20% 100%); }
+      }
+
+/* Portfolio Section Styles */
+#portfolio {
+    position: relative;
+    color: #fff;
+    padding: 50px 0;
+    width: 100%;
+}
+
+#portfolio h1 {
+    position: relative;
+    top: -50px;
+    font-size: 4em;
+}
+
+.portfolio-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 50px;
+    grid-row-gap: var(--spacing-l);
+    max-width: var(--width-container);
+    width: 100%;
+    position: relative;
+    top: -50px;
+  }
+
+  .card{
+  list-style: none;
+  position: relative;
+}
+
+.card:before{
+  content: '';
+  display: block;
+  padding-bottom: 110%;
+  width: 100%;
+}
+
+.card__background{
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--spacing-l);
+  bottom: 0;
+  filter: brightness(0.75) saturate(1.2) contrast(0.85);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-origin: center;
+  transform: scale(1) translateZ(0);
+  transition: 
+    filter 200ms linear,
+    transform 200ms linear;
+}
+
+.card:hover .card__background{
+  transform: scale(1.05) translateZ(0);
+}
+
+.card-grid:hover > .card:not(:hover) .card__background{
+  filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+}
+
+.card__content{
+  left: 0;
+  padding: var(--spacing-l);
+  position: absolute;
+  top: 0;
+}
+
+.card__category{
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-s);
+  text-transform: uppercase;
+}
+
+.card__heading{
+  color: var(--text-lighter);
+  font-size: 1.9rem;
+  text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+  line-height: 1.4;
+  word-spacing: 100vw;
+}
+  
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+/* Styles for individual portfolio items if needed */
+.portfolio-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.portfolio-item h3 {
+    color: orange;
+    margin-top: 10px;
+}
+
+.portfolio-item p {
+    color: #ddd;
+}
+
+#contact {
+    position: relative;
+}
+
+.contact-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-container h1 {
+    position: absolute;
+    text-align: center; /* Center the heading */
+    color: orange; /* Change color of the heading */
+    font-size: 2.5em; /* Increase font size */
+    top: 15%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 20px;
+}
+
+.chat_box {
+    width: 500px; /* Adjust width of each chatbox */
+    height: 500px; /* Adjust height as needed */
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat_box .body {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #2d3548;
+}
+
+.chat_box .foot {
+    display: flex;
+    align-items: center;
+}
+
+.chat_box .foot .msg {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.chat_box .foot button {
+    background-color: #79c7c5;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.chat_box .foot button i {
+    color: #fff;
+}
+
+/* Chat Box Footer Styles */
+.foot {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #f0f0f0; /* Light background for the footer */
+    border-top: 1px solid #ddd; /* Separator line */
+}
+
+.foot .msg {
+    flex-grow: 1;
+    margin-right: 8px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.foot button {
+    padding: 8px 12px;
+    background-color: orange; /* Orange background for send button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.foot button:hover {
+    background-color: #e69500; /* Darker shade for hover effect */
+}
+
+.foot button i {
+    font-size: 16px;
+}
+
+/* Font Awesome Icon Adjustments */
+.avatar i {
+    font-size: 24px; /* Adjust the size of the avatar icons */
+    color: orange; /* Color of the icons */
+}
+
+/* Additional Styling for Avatar Icons */
+.avatar {
+    width: 30px; /* Set a fixed width for avatar */
+    height: 30px; /* Set a fixed height for avatar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #fff; /* White background for the avatar circle */
+    margin-right: 10px;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000; /* Light background for the header */
+    border-bottom: 1px solid #ddd; /* Separator line */
+    color: orange;
+    padding: 8px;
+}

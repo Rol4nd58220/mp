@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ampalo, Roland</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body class="vhs-overlay">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./about.html#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="social-icons">
+        <a href="https://www.facebook.com/RolandMorzo/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook fa-1x"></i></a>
+        <a href="https://www.instagram.com/donno.flo1/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram fa-1x"></i></a>
+        <a href="https://github.com/Rol4nd58220" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-1x"></i></a>
+    </div>
+    
+    <!-- Button Container -->
+    <div class="button-container2">
+        <!-- Custom Button wrapped in an anchor tag -->
+        <a href="./about.html" style="text-decoration: none;">
+            <button class="btn" type="button">
+                <strong>ABOUT</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </a>
+    </div>
+
+    <div id="loading-screen">
+        <div id="loading-text">50%</div>
+        <div class="button-container">
+            <button id="launch-button" style="display: none;">Launch</button>
+            <img src="./assets/globe.gif" alt="Loading" class="loading-gif" style="display: none;"/>
+        </div>
+    </div>
+
+<!-- Home Section -->
+<div id="home-section" style="display: none;">
+    <!-- Avatar Image -->
+    <div class="avatar-container">
+        <img src="./assets/avatar.png" alt="Avatar" class="avatar">
+    </div>
+
+    <!-- Video Wrapper -->
+    <div class="video-wrapper">
+        <video id="home-video" autoplay muted loop>
+            <source src="./assets/looping2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+    <!-- Content Overlay -->
+<div class="content-overlay">
+    <div class="masked-text-wrapper">
+        <h2 class="text-default">Ampalo,</h2>
+        <h2 class="text-underneath">Ampalo,</h2>
+    </div>
+    <div class="masked-text-wrapper">
+        <h2 class="text-default">Roland G.</h2>
+        <h2 class="text-underneath">Roland G.</h2>
+    </div>
+    <div class="typewriter">
+        <h2>I am <span id="dynamic-text"></span></h2>
+    </div>
+</div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

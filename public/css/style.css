@@ -1,0 +1,655 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 400px;
+    width: 100%;
+    z-index: 100; /* Ensure navbar stays on top */
+    padding: 0.5rem 1rem; /* Adjust the padding as needed */
+    font-size: 24px; /* Matching the icon size */
+    display: flex;
+    justify-content: center; /* Center the menu items horizontally */
+    align-items: center; /* Align items vertically */
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    padding: 0.5rem; /* Adjust the padding as needed */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff; /* White color, matching the icon color */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    padding: 5px 10px; /* Padding to create a boxy look */
+    border-radius: 10px; /* Rounded corners to match the icons */
+}
+
+.navbar a:hover {
+    color: orange; /* Change text stroke to orange */
+    background-color: #fff; /* White background on hover */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.704); /* Semi-transparent yellow color */
+}
+
+.social-icons {
+    position: fixed; /* Fixed position */
+    top: 20px; /* 10px from the top */
+    right: 100px; /* 10px from the right */
+    z-index: 100; /* High z-index to ensure it's above other content */
+
+    /* Styling the icons */
+    display: flex;
+    align-items: center;
+}
+
+.social-icons a {
+    display: inline-flex; /* Use flexbox for better centering */
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Spacing between icons */
+    color: #fff; /* Default icon color */
+    font-size: 27px; /* Approximate height of the icon */
+    padding: 5px 8px; /* Padding to create the width and vertical space */
+    border: 1px solid #fff; /* Border for the box */
+    border-radius: 10px; /* Rounded corners for the box */
+    background-color: transparent; /* Transparent background */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    height: 27px; /* Fixed height */
+    width: 24px; /* Fixed width */
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: orange; /* Change text stroke to orange */
+    background-color: #fff; /* Background color for emphasis */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.704); /* Semi-transparent yellow color */
+}
+
+#loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+    /* Creating grid lines */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px; /* Size of the grid */
+}
+
+#loading-text {
+    font-size: 2em;
+    color: white; /* White text and button */
+    transition: all 0.5s ease; /* Smooth transition for text changes */
+    z-index: 9999;
+}
+
+.button-container {
+    position: relative;
+    display: inline-block; /* Adjust as needed */
+}
+
+#launch-button {
+    padding: 10px 40px; /* Increased padding for larger size */
+    font-size: 16px; /* Slightly larger font size */
+    color: #fff;
+    letter-spacing: 8px;
+    background-color: black; /* Black background */
+    border: 1px solid white; /* White border */
+    cursor: pointer;
+    margin-top: 20px;
+    display: inline-block; /* Use inline-block for better control */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 10px white; /* Glowing effect */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    animation: 0.8s ease-out 0s 1 normal both running fadeInUp;
+    position: relative;
+    z-index: 10000;
+}
+
+#launch-button:hover, #launch-button:focus {
+    background-color: #333; /* Slightly lighter black on hover/focus */
+    box-shadow: 0 0 15px white, 0 0 30px white; /* Increased glowing effect on hover/focus */
+    z-index: 10000;
+}
+
+.loading-gif {
+    position: absolute;
+    bottom: 50%; /* Place the bottom of the GIF at the top of the button */
+    left: 23%; /* Center the GIF horizontally */
+    transform: translate(-50%, -10px); /* Adjust position and add a small gap above the button */
+    width: 100px; /* Width of the GIF */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 9999; /* Ensures the GIF is above the button */
+    animation: 0.8s ease-out 0s 1 normal both running fadeInUp;
+}
+
+.vhs-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            transparent,
+            transparent 1px,
+            rgba(255, 255, 255, 0.05) 1px,
+            rgba(255, 255, 255, 0.05) 2px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.03),
+            rgba(0, 255, 0, 0.03) 33%,
+            rgba(0, 0, 255, 0.03) 66%
+        );
+    background-size: 100% 4px, 3px 100%;
+    mix-blend-mode: screen; /* Blends the overlay with the content */
+    z-index: 1000; /* Ensures overlay is above other content */
+    /* Creating grid lines */
+    
+}
+
+.content-overlay {
+    position: absolute; /* Position relative to #home-section */
+    top: -10%; /* Align to the top of #home-section */
+    left: 60%; /* Align to the left of #home-section */
+    width: 100%; /* Same width as #home-section */
+    height: 100%; /* Same height as #home-section */
+    display: flex; /* Use Flexbox for easy centering */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: flex-start; /* Align items to start (left) instead of center */
+    color: white; /* Set text color for visibility */
+    text-align: center; /* Center text alignment */
+    z-index: 2; /* Ensure it's above the video */
+}
+
+h2 {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.masked-text-wrapper h2 {
+    font-size: 7.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: white; /* Change text color to white */
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.masked-text-wrapper {
+    --_box-width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .text-default {
+    position: relative;
+  }
+  
+  .text-default:before,
+  .text-default:after {
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: orange; /* Change line color to orange */
+    position: absolute;
+    top: 0;
+    transform: skew(-41.5deg);
+  }
+  
+  .text-default:before {
+    animation: moveLinesBefore 8s infinite;
+  }
+  
+  .text-default:after {
+    animation: moveLinesAfter 8s infinite;
+  }
+  
+  .text-underneath {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--_box-width);
+    color: #e5e5e5;
+    color: #e5e5e5;
+    -webkit-text-stroke: 3px orange; /* Change text stroke to orange */
+    animation: rectangle 8s infinite;
+  }
+
+  /* Typewriter effect styles */
+  .typewriter h2 {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    display: inline-block;
+    font-size: 2em;
+  }
+
+  .typewriter h2:after {
+    content: "|";
+    animation: blink-caret .75s step-end infinite;
+  }
+
+#home-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+}
+
+.video-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    z-index: 1;
+}
+
+#home-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adjust as needed */
+    animation: rotateVideo 10s linear infinite;
+    transform-origin: center;
+
+    /* Adding a brightness filter */
+    filter: brightness(0.9) contrast(1.2);
+}
+
+#home-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows interaction with the video */
+
+    /* Creating grid lines */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px; /* Size of the grid */
+    z-index: 2; /* Ensure it is above the video */
+}
+
+.avatar-container {
+    position: absolute; /* Position it as needed */
+    top: 12rem; /* Adjust as needed */
+    left: 12rem; /* Adjust as needed */
+    width: 60.25rem; /* Width of the visible area */
+    height: 90rem; /* Height of the visible area, smaller than the avatar to 'cut' the bottom */
+    overflow: hidden; /* Hides parts of the avatar that overflow this container */
+    border-radius: 50%; /* Optional: to keep the circular shape */
+    z-index: 3; /* Ensure it's above other content */
+}
+
+.avatar {
+    width: 100%; /* Fill the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area without stretching */
+    /* No need for position absolute here */
+}
+
+.button-container2 {
+    /* Example positioning styles */
+    display: flex;
+    justify-content: center; /* Center button horizontally */
+    align-items: center; /* Center button vertically */
+    position: absolute; /* Absolute positioning */
+    top: 65%; /* Position from the top */
+    left: 65%; /* Position from the left */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    z-index: 10;
+}
+
+/* Button Base Styles */
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    height: 3rem;
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+
+    background-image: linear-gradient(#212121, #212121),
+                      linear-gradient(137.48deg, #ff4500 10%, #ff6347 45%, #ff8c00 67%, #ffd700 87%);
+    
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+
+
+/* Star Container */
+#container-stars {
+    position: absolute; /* Positions the star container absolutely within the button */
+    z-index: -1; /* Places the stars behind the button content */
+    width: 100%; /* Full width of the parent element */
+    height: 100%; /* Full height of the parent element */
+    overflow: hidden; /* Hides overflow content */
+    transition: 0.5s; /* Transition effect for hover */
+    backdrop-filter: blur(1rem); /* Blur effect */
+    border-radius: 5rem; /* Rounds the corners */
+}
+
+/* Text Style */
+strong {
+    z-index: 2; /* Places the text above other elements */
+    font-family: 'Avalors Personal Use'; /* Custom font */
+    font-size: 12px; /* Text size */
+    letter-spacing: 5px; /* Space between letters */
+    color: #FFFFFF; /* Text color */
+    text-shadow: 0 0 4px white; /* Text shadow for a glowing effect */
+}
+
+/* Glow Effect */
+#glow {
+    position: absolute; /* Absolute position */
+    display: flex; /* Flex container for glow circles */
+    width: 12rem; /* Width of the glow container */
+}
+
+/* Glow Circles */
+.circle {
+    width: 100%; /* Full width of parent */
+    height: 30px; /* Height of the circle */
+    filter: blur(2rem); /* Blurry effect */
+    animation: pulse_3011 4s infinite; /* Pulse animation */
+    z-index: -1; /* Behind the button content */
+}
+
+/* First Circle Style */
+.circle:nth-of-type(1) {
+    background: rgba(255, 69, 0, 0.636); /* Semi-transparent orange-red color */
+}
+
+/* Second Circle Style */
+.circle:nth-of-type(2) {
+    background: rgba(255, 215, 0, 0.704); /* Semi-transparent yellow color */
+}
+
+/* Hover Effect on Container Stars */
+.btn:hover #container-stars {
+    z-index: 1; /* Brings the stars to the front */
+    background-color: #212121; /* Changes background color */
+}
+
+/* Hover Effect on Button */
+.btn:hover {
+    transform: scale(1.1); /* Scales up the button */
+}
+
+/* Active State Styles */
+.btn:active {
+    border: double 4px #ff4500; /* Changes border color to orange-red */
+    background-origin: border-box; /* Adjusts background origin */
+    background-clip: content-box, border-box; /* Adjusts background clipping */
+    animation: none; /* Stops the animation */
+}
+
+/* Active State for Circles */
+.btn:active .circle {
+    background: #ff4500; /* Changes circle color to orange-red */
+}
+
+/* Stars Styles */
+#stars {
+    position: relative; /* Relative position */
+    background: transparent; /* Transparent background */
+    width: 200rem; /* Large width */
+    height: 200rem; /* Large height */
+}
+
+/* After Pseudo-element for Stars */
+#stars::after {
+    content: ""; /* Empty content */
+    position: absolute; /* Absolute position */
+    top: -10rem; /* Position adjustments */
+    left: -100rem; /* Position adjustments */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    animation: animStarRotate 90s linear infinite; /* Rotating animation */
+    background-image: radial-gradient(#ffffff 1px, transparent 1%); /* Star-like small dots */
+    background-size: 50px 50px; /* Size of the star pattern */
+}
+
+/* Before Pseudo-element for Stars */
+#stars::before {
+    content: ""; /* Empty content */
+    position: absolute; /* Absolute position */
+    top: 0; /* Top position */
+    left: -50%; /* Left position */
+    width: 170%; /* Width larger than the container */
+    height: 500%; /* Height larger than the container */
+    animation: animStar 60s linear infinite; /* Vertical moving animation */
+    background-image: radial-gradient(#ffffff 1px, transparent 1%); /* Star-like small dots */
+    background-size: 50px 50px; /* Size of the star pattern */
+    opacity: 0.5; /* Semi-transparent */
+}
+
+/* Keyframes for Animations */
+@keyframes animStar {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-135rem);
+    }
+}
+
+@keyframes animStarRotate {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+
+@keyframes gradient_301 {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse_3011 {
+    0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateVideo {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { color: transparent }
+    50% { color: #ccc }
+  }
+
+@keyframes moveLinesBefore {
+    0%, 100% { left: 50%; }
+    50% { left: 30%; }
+  }
+  
+  @keyframes moveLinesAfter {
+    0%, 100% { left: 70%; }
+    50% { left: 50%; }
+  }
+  
+  @keyframes rectangle {
+    0%, 100% { clip-path: polygon(60% 0, 80% 0, 60% 100%, 40% 100%); }
+    50% { clip-path: polygon(40% 0, 60% 0, 40% 100%, 20% 100%); }
+  }
+
+
+  @media only screen and (min-width: 1280px) and (max-width: 1920px) {
+    /* Adjust navbar for medium to large screens */
+    .navbar {
+        left: calc(30% - 200px); /* Center the navbar */
+        font-size: calc(1rem + 0.5vw); /* Adjust font size based on viewport width */
+    }
+
+    /* Adjust social icons for medium to large screens */
+    .social-icons {
+        right: 20px; /* Closer to the edge */
+        font-size: calc(1rem + 0.5vw); /* Adjust icon size */
+    }
+
+    /* Make avatar and video responsive */
+    .avatar-container, .video-wrapper {
+        left: 30%;
+        transform: translateX(-50%); /* Center horizontally */
+        width: calc(60% + 5vw); /* Responsive width */
+        top: 0px;
+    }
+
+    .avatar {
+        width: 100%; /* Full container width */
+    }
+
+     /* Adjust video size */
+     .video-wrapper {
+        width: 100%; /* Full width of the container */
+        height: 100%; /* Full height of the container */
+    }
+
+    #home-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Adjust as needed */
+    }
+
+    /* Adjust button size */
+    .button-container2 .btn {
+        width: calc(10rem + 2vw); /* Responsive button width */
+        height: calc(2.5rem + 0.5vw); /* Responsive button height */
+    }
+
+    /* Adjust text size */
+    .content-overlay h2{
+        font-size: calc(1.5rem + 5vw); /* Responsive font size */
+    }
+
+    /* Typewriter effect */
+    .typewriter h2 {
+        font-size: calc(0.9em + 0.5vw); /* Responsive typewriter text size */
+    }
+
+    .button-container2 {
+        top: 65%;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .navbar {
+        top: 10px;
+        left: 10px;
+        transform: none;
+        width: 95%;
+        font-size: min(18px, 5vw);
+    }
+
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        padding: 0.5rem 0;
+    }
+
+    .social-icons {
+        top: 60px;
+    }
+
+    .content-overlay {
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+    }
+
+    .content-overlay p {
+        text-align: center;
+    }
+
+    .button-container2 {
+        top: 75%;
+    }
+
+    .btn {
+        width: min(13rem, 80%);
+    }
+}

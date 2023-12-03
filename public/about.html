@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Roland Ampalo</title>
+    <link rel="stylesheet" href="/css/about.css"> <!-- Link to your separate CSS file for the about page -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="vhs-overlay">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+        <a href="https://www.facebook.com/RolandMorzo/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook fa-1x"></i></a>
+        <a href="https://www.instagram.com/donno.flo1/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram fa-1x"></i></a>
+        <a href="https://github.com/Rol4nd58220" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-1x"></i></a>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-container">
+        <div>
+            <!-- Left Column for About Me -->
+            <div class="left-column">
+                <h1>About Me</h1>
+                <div class="about-me">
+                    <!-- About Me content here -->
+                    <p>I&#39;m Roland Ampalo, passionate about programming and art. My province is Pangasinan. I delight in creating unique digital experiences and addressing challenges with innovative coding solutions. Always eager to learn and adapt, I explore fresh possibilities in programming, aiming to inspire and make a mark in the ever-evolving tech world.</p>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Location: Crystal Cave Bakakeng Central</li>
+                        <li><i class="fas fa-phone-alt"></i> Phone: +639294114330</li>
+                        <li><i class="fas fa-envelope"></i> Email: rga4751@students.uc-bcf.edu.ph</li>
+                        <li><i class="fas fa-globe"></i> Website: https://rol4nd58220.github.io/</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Center Column for Bio Image -->
+            <div class="center-column">
+                <div class="b-game-card">
+                    <div class="b-game-card__cover">
+                        <img src="/assets/bioPic.png" alt="Bio Picture" class="rounded_border">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-overlay">
+                <div class="masked-text-wrapper">
+                    <h2 class="text-default">Ampalo,</h2>
+                    <h2 class="text-underneath">Ampalo,</h2>
+                </div>
+                <div class="masked-text-wrapper">
+                    <h2 class="text-default">Roland G.</h2>
+                    <h2 class="text-underneath">Roland G.</h2>
+                </div>
+            </div>
+
+            <!-- Right Column for Skills -->
+            <div class="center">
+                <h1>My Skills</h1>
+                <div class="skill-container">
+                    <p>Web Developer</p>
+                    <p>76%</p>
+                    <div class="skill-bar">
+                        <div class="skill-level html"></div>
+                    </div>
+                </div>
+                <div class="skill-container">
+                    <p>Programmer</p>
+                    <p>70%</p>
+                    <div class="skill-bar">
+                        <div class="skill-level css"></div>
+                    </div>
+                </div>
+                <div class="skill-container">
+                    <p>3D Artist</p>
+                    <p>56%</p>
+                    <div class="skill-bar">
+                        <div class="skill-level sass"></div>
+                    </div>
+                </div>
+                <div class="skill-container">
+                    <p>Drawing</p>
+                    <p>46%</p>
+                    <div class="skill-bar">
+                        <div class="skill-level js"></div>
+                    </div>
+                </div>
+                <div class="skill-container">
+                    <p>Game Desing</p>
+                    <p>40%</p>
+                    <div class="skill-bar">
+                        <div class="skill-level sql"></div>
+                    </div>
+                </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="portfolio-container">
+            <h1>Portfolio</h1>
+            <div class="card-grid">
+                <!-- Portfolio items -->
+                <div class="card">
+                    <div class="card__background" style="background-image: url('/assets/elem.png');"></div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Elementary Graduation</h3>
+                    </div>
+                </div>
+                <!-- Portfolio items -->
+                <div class="card">
+                    <div class="card__background" style="background-image: url('/assets/juniorHighSchool.png');"></div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Junior Higschool Graduation</h3>
+                    </div>
+                </div>
+                <!-- Portfolio items -->
+                <div class="card">
+                    <div class="card__background" style="background-image: url('/assets/seniorHighSchool.png');"></div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Senior Highschool Graduation</h3>
+                    </div>
+                </div>
+                <!-- Portfolio items -->
+                <div class="card">
+                    <div class="card__background" style="background-image: url('/assets/mom.png');"></div>
+                    <div class="card__content">
+                        <h3 class="card__heading">My One-In-A-Million Mom</h3>
+                    </div>
+                </div>
+                <!-- Portfolio items -->
+                <div class="card">
+                    <div class="card__background" style="background-image: url('/assets/dad.png');"></div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Super Dad</h3>
+                    </div>
+                </div>
+                <!-- Portfolio items -->
+                <div class="card">
+                    <div class="card__background" style="background-image: url('/assets/jesseMartinez.png');"></div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Sir Jesse Martinez</h3>
+                    </div>
+                </div>
+                <!-- More portfolio items... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-container">
+        <h1>Contact</h1>
+        <div class="container">
+
+            <!-- Messenger Chat Box -->
+            <div class="chat_box" id="messenger-chatbox">
+                <div class="head">
+                    <div class="user">
+                        <h2 class="name"><i class="fab fa-facebook-messenger"></i> Messenger Messages</h2>
+                        <h2 class="name">Roland Ampalo</h2>
+                    </div>
+                </div>
+                <div class="body" id="messenger-messages">
+                    <!-- Messenger messages will be displayed here -->
+                </div>
+                <div class="foot">
+                    <input type="text" class="msg" placeholder="Type your Messenger reply...">
+                    <button><i class="fa fa-paper-plane"></i></button>
+                </div>
+            </div>
+
+            <!-- Email Chat Box -->
+            <div class="chat_box" id="email-chatbox">
+                <div class="head">
+                    <div class="user">
+                        <h2 class="name"><i class="fa fa-envelope"></i> Email Messages</h2>
+                        <h2 class="name">rol4nd58220@gmail.com</h2>
+                    </div>
+                </div>
+                <div class="body" id="email-messages">
+                    <!-- Email messages will be displayed here -->
+                </div>
+                <div class="foot">
+                    <input type="text" class="msg" id="email-reply-input" placeholder="Type your Email reply...">
+                    <button id="email-reply-button"><i class="fa fa-paper-plane"></i></button>
+                </div>
+            </div>
+
+            <!-- SMS Chat Box -->
+            <div class="chat_box" id="sms-chatbox">
+                <div class="head">
+                    <div class="user">
+                        <h2 class="name"><i class="fa fa-comment-alt"></i> SMS Messages</h2>
+                        <h2 class="name">+639294114330</h2>
+                    </div>
+                </div>
+                <div class="body" id="sms-messages">
+                    <!-- SMS messages will be displayed here -->
+                </div>
+                <div class="foot">
+                    <input type="text" id="smsPhoneNumber" class="msg" placeholder="Recipient's phone number">
+                    <input type="text" id="smsMessage" class="msg" placeholder="Type your SMS message...">
+                    <button type="button" id="sendSmsButton"><i class="fa fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>
