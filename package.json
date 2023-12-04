@@ -8,5 +8,10 @@
     "nodemailer": "^6.9.7",
     "simple-imap": "^0.1.6",
     "socket.io": "^4.7.2"
+  },
+    "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No tests specified\" && exit 0",
+    // other scripts
   }
 }
